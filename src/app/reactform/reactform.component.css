@@ -1,0 +1,72 @@
+*{
+    font-family: play;
+}
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    background: rgba(0,0,0,0.4);
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,1);
+}
+.box h1{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+.box .inputbox{
+    position: relative;
+}
+.box .inputbox input{
+    width: 100;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.box .inputbox label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    pointer-events: none;
+    transition: 0.5s;
+    
+}
+.box .inputbox input:focus ~ label, .box .inputbox input:valid ~ label{
+    top: -25px;
+    left: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(44, 247, 4);
+}
+
+.box input[type="submit"],input[type="button"]{
+    background: transparent;
+    font-weight: bold;
+    color: rgb(233,66,54);
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-left: 250px;
+    border:3px solid rgb(22,72,6);
+    box-shadow: 10px 15px 15px rgba(0,0,0,1);
+}
+.formcheck{
+    font-weight: bold;
+    color: #fff;
+}

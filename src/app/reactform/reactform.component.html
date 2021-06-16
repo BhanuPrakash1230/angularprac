@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <div class="box">
+        <h1>Login form</h1>
+        <form [formGroup]="registrationForm">
+            <div class="row">
+                <div class="col-6">
+            <div class="form-group inputbox">
+
+                <!-- the code was too big to watch so to overcome that use GETTERS in .ts file
+                "registrationForm.get('username')"====Username -->
+
+                <input [class.is-invalid]="Username.invalid &&  Username.touched"
+                 type="text" formControlName="username" class="form-control" required="">
+                <label>Username:</label>
+                <div *ngIf=" Username.invalid &&  Username.touched">
+                    <small class="text-danger" *ngIf=" Username.errors?.required" >
+                        username is required
+                    </small>
+                    <small class="text-danger" *ngIf=" Username.errors?.minlength">
+                        username has  atleast 3 characters
+                    </small>
+                    <small class="text-danger" *ngIf="Username.errors?.forbiddenName">
+                        {{Username.errors?.forbiddenName.value}}--username is Not ALLowed
+                    </small>
+                </div>
+            </div>
+            <div  class="form-group inputbox">
+                <input type="password" formControlName="password"  class="form-control" required="">
+                <label>Password:</label>
+            </div>
+            <div  class="form-group inputbox">
+                <input type="password" formControlName="confirmpassword"  class="form-control" required="">
+                <label>Confirmpassword:</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div formGroupName="address">
+            <div  class="form-group inputbox">
+                <input type="text" formControlName="city"  class="form-control" required="">
+                <label>City:</label>
+            </div>
+            <div  class="form-group inputbox">
+                <input type="text" formControlName="state"  class="form-control" required="">
+                <label>State:</label>
+            </div>
+            <div  class="form-group inputbox">
+                <input type="text" formControlName="pincode"  class="form-control" required="">
+                <label>Pincode:</label>
+            </div>
+        </div>
+        </div>
+        <input type="submit" name="submit" value="Register">
+        <input (click)="displayValues()" type="button" name="display" value="display">
+         </div>
+        </form>
+        <div class="formcheck">
+            {{ registrationForm.value | json}}
+        </div>
+    </div>
+</body>
+</html>
